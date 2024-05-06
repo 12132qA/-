@@ -1,0 +1,19 @@
+1. 简单的增删改查
+
+2. 分页查询
+
+3. 条件查询
+  banner 设置 logo  条件筛选 分组 lambda
+
+  .select 查询投影  分组统计
+  范围查询 模糊匹配
+
+  表及字段的映射 @TableName("user")  // 表名的映射
+
+       做类的属性和 表的字段的映射
+       @TableField(value = "id",select = true,exist = true)
+       // select 选择可查询 ， exist 表示在数据库中存在
+
+
+  全局配置
+      id生成策略

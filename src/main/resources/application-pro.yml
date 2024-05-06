@@ -1,0 +1,65 @@
+server:
+  port: 8008
+
+mybatis-plus: # 开启日志
+  configuration:
+    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    banner: false  # 设置logo 的显示 和 关闭
+    db-config:
+      id-type: assign_id # 雪花算法
+      logic-delete-field: deleted # logic删除字段
+      logic-delete-value: 1 # 逻辑删除的字段
+      logic-not-delete-value: 0 # 没用被Logic 删除的字段
+
+spring:
+  config:
+    activate:
+      on-profile: pro
+#  profiles:
+#    active: pro
+  application:
+    name: my_wx
+#    应用名称 可选
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/wx_proj?useSSL=false
+      username: root
+      password: 600600
+  main:
+    banner-mode: log # 关闭springboot 的 logo
+
+  cache:
+    type: redis
+    redis:
+      use-key-prefix: false
+      key-prefix: log
+      cache-null-values: true # 防止缓存击穿
+      time-to-live: 3600000
+
+    cache-names: ss
+
+
+
+  redis:
+    host: localhost
+    port: 6379
+    connect-timeout: 50
+    database: 1
+
+#  mvc:
+#    static-path-pattern: /images/**
+
+# 文件存储路径  test 路径
+wx_back:
+  path: D:\spring-0001\wx_back\src\main\resources\static\images\
+
+
+#  statIntervalMinutes: 1
+#  local:
+#    default:
+#      type: linkedhashmap
+#      keyConvertor: fastjson

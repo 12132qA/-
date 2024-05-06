@@ -1,0 +1,16 @@
+? 登录 状态
+
+手机号
+
+验证码
+
+登录
+
+前端 userInfo 获取 用户信息 返回 code
+
+后端 使用 code 及相关信息 获取 session_key  openid
+
+
+
+乐观锁
+
